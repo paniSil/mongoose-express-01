@@ -5,13 +5,10 @@ const postUserHandler = async (req, res) => {
     try {
         const { name, email, password, age } = req.body;
 
-        const saltRounds = 10;
-        const hashedPassword = await bcrypt.hash(password, saltRounds);
-
         const newUser = new User({
             name,
             email,
-            password: hashedPassword,
+            password,
             createdAt: new Date(),
             updatedAt: new Date(),
             age,

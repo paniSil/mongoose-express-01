@@ -26,13 +26,15 @@ articlesRouter
     .route('/replace')
     .put(validateReplaceArticle, replaceArticleHandler)
 
+articlesRouter.get('/stats', getArticleStatsHandler);
+articlesRouter.get('/stats/view', getArticleStatsPageHandler);
+
 articlesRouter
     .route('/:id')
     .get(validateParamsArticleId, getArticleByIdHandler)
     .put(validateParamsArticleId, validateArticleBody, putArticleByIdHandler)
     .delete(validateParamsArticleId, deleteArticleByIdHandler)
 
-articlesRouter.get('/stats', getArticleStatsHandler);
-articlesRouter.get('/stats/view', getArticleStatsPageHandler);
+
 
 export default articlesRouter

@@ -13,7 +13,7 @@ const getLoginPage = (req, res) => {
 
 const getRegisterPage = (req, res) => {
     const theme = req.cookies.theme || 'light';
-    res.render('auth/register.pug', { title: 'Реєстрація', theme: theme });
+    res.render('auth/register', { title: 'Реєстрація', theme: theme });
 };
 
 const postRegisterPage = async (req, res) => {
