@@ -4,12 +4,11 @@ import User from '../../models/User.mjs';
 
 const createUserInDb = async (name, email, password, age) => {
     const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     const newUser = new User({
         name,
         email,
-        password: hashedPassword,
+        password,
         age: parseInt(age, 10),
         role: 'admin',
         resetToken: null,

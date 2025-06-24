@@ -24,11 +24,13 @@ export const initPassport = () => {
         try {
             const user = await findUserByEmail(email);
             if (!user) {
+                console.log('User not found:', email);
                 return done(null, false, { message: 'Wrong email or password' });
             }
 
             const isMatch = await bcrypt.compare(password, user.password);
             if (!isMatch) {
+                console.log('Password mismatch for:', email);
                 return done(null, false, { message: 'Wrong email or password' });
             }
 
